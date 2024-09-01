@@ -29,7 +29,7 @@ var stompClient = null;
 //stompClient.connect({}, onConnected, onError);
 
 function connect(event) {
-    var socket = new SockJS('/server');
+    var socket = new SockJS('http://localhost:8002/server');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, onConnected, onError);
     event.preventDefault();

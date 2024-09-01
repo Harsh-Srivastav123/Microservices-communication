@@ -18,30 +18,40 @@ public class RestService {
 
     @Autowired
     SimpMessageSendingOperations messagingTemplate;
+    @Autowired
+    RestFeignImpl restFeign;
     
     
     public void send(Message message) {
-        log.info("message received in rest service microservice-1");
-        try{
-            ObjectMapper objectMapper=new ObjectMapper();
-            URL weburl = new URL("http://localhost:7000/rest");
-            HttpURLConnection webConnection = (HttpURLConnection) weburl.openConnection();
-            webConnection.setRequestMethod("POST");
-            webConnection.setRequestProperty("Accept", "application/json");
-            webConnection.setRequestProperty("Content-Type", "application/json");
-            webConnection.setDoOutput(true);
-            String jsonPayload=objectMapper.writeValueAsString(message);
-            // Send JSON payload
-            try (OutputStream os = webConnection.getOutputStream()) {
-                byte[] input = jsonPayload.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
 
-            log.info("Response status   "+String.valueOf(webConnection.getResponseCode()));
+        try {
+            restFeign.restCall(message);
         }
         catch (Exception e){
             e.printStackTrace();
         }
+
+//        log.info("message received in rest service microservice-1");
+//        try{
+//            ObjectMapper objectMapper=new ObjectMapper();
+//            URL weburl = new URL("http://localhost:7000/rest");
+//            HttpURLConnection webConnection = (HttpURLConnection) weburl.openConnection();
+//            webConnection.setRequestMethod("POST");
+//            webConnection.setRequestProperty("Accept", "application/json");
+//            webConnection.setRequestProperty("Content-Type", "application/json");
+//            webConnection.setDoOutput(true);
+//            String jsonPayload=objectMapper.writeValueAsString(message);
+//            // Send JSON payload
+//            try (OutputStream os = webConnection.getOutputStream()) {
+//                byte[] input = jsonPayload.getBytes("utf-8");
+//                os.write(input, 0, input.length);
+//            }
+//
+//            log.info("Response status   "+String.valueOf(webConnection.getResponseCode()));
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
 
     public void receiveMessage(Message message) {

@@ -21,7 +21,7 @@ public class RabbitMqListener {
 
     @RabbitListener(queues = "queueA")
     public void listenQueueBtoA(String value) {
-        log.info("Message received in microservice-2 on queueBtoA");
+        log.info("Message received in RabbitMQ Listener microservice-B");
         log.info(value);
 
         Message message;

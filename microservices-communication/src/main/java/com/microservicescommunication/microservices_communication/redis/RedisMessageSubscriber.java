@@ -21,7 +21,7 @@ public class RedisMessageSubscriber implements MessageListener {
 
     @Override
     public void onMessage(Message message, byte[] pattern) {
-        log.info("message received in redis subscriber microservice-1");
+        log.info("message received in redis subscriber microservice-A");
         String channel = new String(message.getChannel());
         String body = new String(message.getBody());
         log.info("channel : "+channel+"  body : "+body );

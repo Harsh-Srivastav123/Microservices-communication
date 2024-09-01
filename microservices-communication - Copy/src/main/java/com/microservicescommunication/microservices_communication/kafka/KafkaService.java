@@ -19,7 +19,7 @@ public class KafkaService {
     ObjectMapper objectMapper;
 
     public void send(Message message) {
-        log.info("message received in kafka service  microservice-2");
+        log.info("message received in kafka service  microservice-B");
         try{
 
             kafkaTemplate.send("kafka-topic-1",objectMapper.writeValueAsString(message));

@@ -18,7 +18,7 @@ public class RabbitMqService {
     ObjectMapper objectMapper;
 
     public void send(Message message) {
-        log.info("Message sent from microservice-1 to exchangeAtoB");
+        log.info("Message received Rabbit Mq Service microservices-A");
         try {
             rabbitTemplate.convertAndSend(RabbitMqConfiguration.EXCHANGE, RabbitMqConfiguration.ROUTING_KEY, objectMapper.writeValueAsString(message));
         } catch (JsonProcessingException e) {

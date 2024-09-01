@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-
+@CrossOrigin
+//@RequestMapping("test/a")
 public class MainController {
 
     //subscribe to general
@@ -81,5 +82,14 @@ public class MainController {
     public void restMessage(@RequestBody Message message){
         restService.receiveMessage(message);
     }
+
+//    @GetMapping("/")
+//    public Object test(){
+//        return "test microservice -a";
+//    }
+@GetMapping("/microservice-b/test")
+public Object test(){
+    return "testing server - b";
+}
 
 }

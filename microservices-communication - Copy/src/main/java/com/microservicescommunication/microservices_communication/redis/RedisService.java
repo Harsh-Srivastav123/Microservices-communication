@@ -19,7 +19,7 @@ public class RedisService {
     ObjectMapper objectMapper;
 
     public void send(Message message) {
-        log.info("message received in redis service microservice-2");
+        log.info("message received in redis service microservice-B");
 
         try {
             redisTemplate.convertAndSend("redis-group-1", objectMapper.writeValueAsString(message));

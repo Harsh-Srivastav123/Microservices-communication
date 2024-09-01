@@ -1,18 +1,18 @@
 package com.microservicescommunication.microservices_communication.awssns;
 
-import com.amazonaws.services.sns.AmazonSNS;
-import com.amazonaws.services.sqs.AmazonSQS;
-import com.amazonaws.services.sqs.AmazonSQSAsync;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-
-import org.springframework.cloud.aws.messaging.core.NotificationMessagingTemplate;
-import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
-import org.springframework.context.annotation.Bean;
-import org.springframework.messaging.support.MessageBuilder;
-import org.springframework.stereotype.Component;
-
-@Component
+//import com.amazonaws.services.sns.AmazonSNS;
+//import com.amazonaws.services.sqs.AmazonSQS;
+//import com.amazonaws.services.sqs.AmazonSQSAsync;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Value;
+//
+//import org.springframework.cloud.aws.messaging.core.NotificationMessagingTemplate;
+//import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.messaging.support.MessageBuilder;
+//import org.springframework.stereotype.Component;
+//
+//@Component
 public class SnsPublisher {
 
 //    @Autowired
@@ -32,10 +32,10 @@ public class SnsPublisher {
 //        notificationMessagingTemplate.sendNotification(topicArn, message, "Subject");
 //    }
 
-    @Autowired
-    QueueMessagingTemplate queueMessagingTemplate;
-
-    public void sendMessage(String message) {
-        this.queueMessagingTemplate.send("ms-queue", MessageBuilder.withPayload(message).build());
-    }
+//    @Autowired
+//    QueueMessagingTemplate queueMessagingTemplate;
+//
+//    public void sendMessage(String message) {
+//        this.queueMessagingTemplate.send("ms-queue", MessageBuilder.withPayload(message).build());
+//    }
 }

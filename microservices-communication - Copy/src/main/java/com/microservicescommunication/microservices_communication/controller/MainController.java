@@ -17,8 +17,9 @@ import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @Slf4j
-
+//@RequestMapping("/test/b")
 public class MainController {
 
     //subscribe to general
@@ -81,4 +82,13 @@ public class MainController {
         restService.receiveMessage(message);
     }
 
+
+//    @GetMapping("/")
+//    public Object test(){
+//        return "test";
+//    }
+//    @GetMapping("/microservice-b/test")
+//    public Object test(){
+//        return "testing server - b";
+//    }
 }

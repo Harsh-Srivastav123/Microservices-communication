@@ -20,7 +20,7 @@ public class KafkaService {
 
     public void send(Message message) {
 
-        log.info("message received in kafka service microservice-1");
+        log.info("message received in kafka service microservice-A");
 
         try{
 

@@ -17,7 +17,7 @@ public class KafkaListenerConfiguration {
     SimpMessageSendingOperations messagingTemplate;
     @KafkaListener(topics="kafka-topic-1",groupId = "group-1")
     public void updateChat(String value){
-        log.info("message received in kafka listener microservice-1 ");
+        log.info("message received in kafka listener microservice-A ");
         log.info(value);
         ObjectMapper mapper=new ObjectMapper();
         Message message;
